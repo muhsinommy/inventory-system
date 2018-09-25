@@ -38,63 +38,58 @@
         <!-- Google Font -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
         <style>
-            .menu ul{
-                list-style: none;
-                margin: 0;
-            }
+            *{padding: 0; margin: 0;}
+            a{text-decoration: none;}
+            li{list-style: none; color: white; }
 
-            .menu ul li{
-                margin: 0 auto;
-                margin-left: -40px;
-                padding: 15px;
-                position: relative;
-                width: 230px;
-                vertical-align: middle;
-                background-color:;
-                cursor: pointer;
-                border-top: 1px solid #BDC3C7;
-                -webkit-transition: all 0.3s;
-                -o-transition: all 0.3s;
-                transition: all 0.3s;
-
-            }
-
-            /*      .menu ul li:hover{
-                      background-color: #2ECC71;
-                  } */
-            .menu > ul > li{
-                border-right: 5px solid #F1C40F;
-            }
-            .menu ul ul{
-                transition: all 0.3s;
-                position: absolute;
-                opacity: 0;
-                visibility: hidden;
-                left: 76%;
-                top: -2%;
-            }
-
-            .menu ul li:hover > ul{
-                opacity: 1;
-                visibility: visible;
-            }
-
-            span{
-                margin-right: 15px;
-            }
-            .menu ul li a{
+            .main-nav a{
+                /*    text-transform: uppercase; 
+                letter-spacing: .2em;  */
+                font-size: large;
                 color: #fff;
-                text-decoration: none;
+                display: block;
+                padding: 10px 0 10px 20px
             }
 
+            .main-nav a:hover{
+                background: #3498DB;
+            }
+
+            /*       .main-nav-ul ul{
+                       display: none;
+                   } */
+
+            .main-nav-ul li:hover ul{
+                display: block;
+            }
+
+            .main-nav ul a:before{
+                content: '\203A';
+                margin-right: 15px; 
+            }
+
+            .main-nav .sub-arrow:after{
+                content: '\203A';
+                float: right;
+                margin-right: 20px;
+                transform: rotate(90deg);
+                -webkt-transform: rotate(90deg);
+                -moz-transform: rotate(90deg);
+            }
+
+            .main-nav li:hover .sub-arrow:after{
+                content: '\2039';
+                font-size: 150%;
+                font-weight: bold;
+            }
             .vl {
-                border-left: 1px solid gray;
+                border-left: 1px solid lightgray;
                 height: 500px;
                 position: absolute;
                 left: 50%;
                 opacity: 0.7;
                 margin-left: -3px;
-                top: 0;
+                top: 1;
             }
 
             .table > thead > tr > th{
@@ -386,7 +381,7 @@
                 <!-- sidebar: style can be found in sidebar.less -->
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
-                    <div class="user-panel">
+                    <div class="user-panel" class="border-bottom: 4px solid gray;">
                         <div class="pull-left image">
                             <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                         </div>
@@ -394,60 +389,54 @@
                             <p>Alexander Pierce</p>
                             <!--      <a href="#"><i class="fa fa-circle text-success"></i> Online</a>   -->
                         </div>
+                        
                     </div> 
 
                     <!-- NAVIGATION MENU -->
-                    <div class="menu">
-                        <ul>
-                            <li><a href="#">
-                                    <div class="card-header" data-background-color="blue">
-                                        <i class="glyphicon glyphicon-random"></i>
-                                    </div>
-                                    Product Makes</a></li>
-                            <li><a href="#">
-                                    <div class="card-header" data-background-color="green">
-                                        <i class="glyphicon glyphicon-hourglass"></i>
-                                    </div>
-                                    Product models</a>
-                                <!--                                <ul>
-                                                                    <li style="margin: 0 auto; margin-right: 131px;"><a href="<?= yii\helpers\Url::to(['student/create']) ?>"><span class="glyphicon glyphicon-plus"></span>Add</a></li>
-                                                                    <li style="margin: 0 auto; margin-right: 131px;"><a href="<?= yii\helpers\Url::to(['student/index']) ?>"><span class="glyphicon glyphicon-eye-open"></span>View</a></li>
-                                
-                                                                </ul>-->
+                    <nav class="main-nav" >
+                        <ul class="main-nav-ul">
+                            <li style="border-bottom: 4px solid gray;"></li>
+                            <li style="border-bottom: 4px solid gray;"><span style="font-size: 150%; font-weight: bold">Dashboard</span><span class="sub-arrow"></span>
+                                <ul>
+                                    <li><a href="#">View My Dashboard</a></li>
+                                    <li><a href="#">Address Book</a></li>
+                                </ul>
                             </li>
-                            <li><a href="#">
-                                    <div class="card-header" data-background-color="">
-                                        <i class="glyphicon glyphicon-cog"></i>
-                                    </div>
-                                    Product categories</a>
-                                <!--                                <ul>
-                                                                    <li style="margin: 0 auto; margin-right: 131px;"><a href="<?= yii\helpers\Url::to(['teacher/create']) ?>"><span class="glyphicon glyphicon-plus"></span>Add</a></li>
-                                                                    <li style="margin: 0 auto; margin-right: 131px;"><a href="<?= yii\helpers\Url::to(['student/index']) ?>"><span class="glyphicon glyphicon-eye-open"></span>View</a></li>
-                                                                </ul>-->
+                            <li style="border-bottom: 4px solid gray;"><span style="font-size: 150%; font-weight: bold">Accounts</span>
+                                <ul>
+                                    <li><a href="#">Customer List</a></li>
+                                    <li><a href="#">Prospect List</a></li>
+                                    <li><a href="#">Supplier List</a></li>
+                                    <li><a href="#">Sales Opportunities</a></li>
+                                </ul>
                             </li>
-                            <li><a href="#">
-                                    <div class="card-header" data-background-color="blue">
-                                        <i class="glyphicon glyphicon-home"></i>
-                                    </div>
-                                    Product supplier</a>
-                                <!--                                <ul>
-                                                                    <li style="margin: 0 auto; margin-right: 131px;"><a href="<?= yii\helpers\Url::to(['subject/create']) ?>"><span class="glyphicon glyphicon-plus"></span>Add</a></li>
-                                                                    <li style="margin: 0 auto; margin-right: 131px;"><a href="<?= yii\helpers\Url::to(['subject/index']) ?>"><span class="glyphicon glyphicon-eye-open"></span>View</a></li>
-                                                                </ul>-->
+                            <li style="border-bottom: 4px solid gray;"><span style="font-size: 150%; font-weight: bold">Inventory</span>
+                                <ul>
+                                    <li><a href="#">Inventory List</a></li>
+                                    <li><a href="#">Manage Categories</a></li>
+                                    <li><a href="#">Manage Attributes</a></li>
+                                    <li><a href="#">Locations and Zones</a></li>
+                                </ul>
                             </li>
-                            <li><a href="#">
-                                    <div class="card-header" data-background-color="">
-                                        <i class="glyphicon glyphicon-baby-formula"></i>
-                                    </div>
-                                    Products</a>
-                                <!--                                <ul>
-                                                                    <li style="margin: 0 auto; margin-right: 131px;"><a href="<?= yii\helpers\Url::to(['guardian/create']) ?>"><span class="glyphicon glyphicon-plus"></span>Add</a></li>
-                                                                    <li style="margin: 0 auto; margin-right: 131px;"><a href="<?= yii\helpers\Url::to(['guardian/index']) ?>"><span class="glyphicon glyphicon-eye-open"></span>View</a></li>
-                                                                </ul> -->
+                            <li style="border-bottom: 4px solid gray;"><span style="font-size: 150%; font-weight: bold">Orders</span>
+                                <ul>
+                                    <li><a href="#">Purchase Orders</a></li>
+                                    <li><a href="#">Estimates</a></li>
+                                    <li><a href="#">Invoices</a></li>
+                                </ul>
                             </li>
-
+                            <li style="border-bottom: 1px solid gray;"><span style="font-size: 150%; font-weight: bold">Reports</span>
+                                <ul>
+                                    <li><a href="#">Financial Report</a></li>
+                                    <li><a href="#">Aged Receivable</a></li>
+                                    <li><a href="#">Sold Items Report</a></li>
+                                    <li><a href="#">Low Inventory Report</a></li>
+                                    <li><a href="#">Payments Report</a></li>
+                                    <li><a href="#">Customer Revenue</a></li>
+                                </ul>
+                            </li>
                         </ul>
-                    </div>
+                    </nav>
                     <!-- search form -->
                     <!--  <form action="#" method="get" class="sidebar-form">
                         <div class="input-group">
@@ -647,6 +636,7 @@
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li class="active">Dashboard</li>
                     </ol>
+                    <p style="border-bottom: 4px solid lightgray; margin-top: 24px;"></p>
                 </section>
 
                 <!-- Main content -->
